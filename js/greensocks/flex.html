@@ -1,0 +1,182 @@
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1.0 user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenLite.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TimelineLite.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/plugins/CSSPlugin.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/plugins/TextPlugin.min.js"></script>
+
+    <script>
+
+      window.onload = function () {
+       //startAnim();
+      }
+
+      function startAnim() {
+
+        var headline1 = document.querySelector(".step1").querySelector(".headline");
+        var buttons = headline1.querySelector(".button-group");
+
+        var step2 = document.querySelector(".step2");
+        var p1 = step2.querySelector(".p1");
+        var p2 = step2.querySelector(".p2");
+        var p3 = step2.querySelector(".p3");
+        var p4 = step2.querySelector(".p4");
+        var p5 = step2.querySelector(".p5");
+
+        var multi = 0.1;
+        var headHeight = headline1.offsetHeight;
+
+        var tl = new TimelineLite();
+        tl
+          .from(headline1, 0.5, { opacity: 0, top: headHeight })
+          .to(headline1, 0.5, { delay: 2.5*multi, opacity: 0, top: -headHeight / 2 }, "start")
+          .to(step2, 0.5, { delay: 2.5*multi, top: 0 }, "start")
+
+          .from(p1, 0.5, { delay: .5*multi, opacity: 0, top: p1.offsetHeight })
+          .from(p2, 0.5, { delay: 1.5*multi, opacity: 0, top: p2.offsetHeight })
+          .from(p3, 0.5, { delay: 1.5*multi, opacity: 0, top: p3.offsetHeight })
+          .from(p4, 0.5, { delay: 1.5*multi, opacity: 0, top: p4.offsetHeight })
+          .from(p5, 0.5, { delay: 1.5*multi, opacity: 0, top: p5.offsetHeight })
+
+          .to(step2, 0.5, { delay: 2.5*multi, top: headHeight / 3 }, "end")
+          .to(headline1, 0.5, { delay: 2.5*multi, opacity: 1, top: headHeight }, "end");
+
+      }
+
+    </script>
+
+    <style>
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        width: 100%;
+        position: absolute;
+        top: 0;
+      }
+      footer {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+      }
+      nav {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .animation {
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+      div[class^='step'], div[class*=' step'] {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        margin: auto;
+        top: 0; left: 0; bottom: 0; right: 0;
+      }
+      .chat, .headline, .button-group {
+        position: relative;
+        text-align: left;
+        max-width: 400px;
+        width: 100%;
+        padding: 12px 0;
+        margin: 0 auto;
+        background: #f7f7f7;
+      }
+      .headline {
+        max-width: 60%;
+        text-align: center;
+        background: #eaeaea;
+      }
+      .p2 {
+        text-align: right;
+      }
+      h5, p {
+        margin: 0;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <nav>
+        <a href="" class="logo">Logo</a>
+        <ul>
+          <li>
+            <a href="" class="button">Activate</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="animation">
+
+      <div class="step1">
+
+        <div class="headline">
+          <h1>Accelerate Your Decision-making.</h1>
+          <h3>Weld’s practical artificial intelligence presents your best options, instantly.</h3>
+          <div class="button-group">
+            <a href="#" class="button">learn more</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="step2">
+
+        <div class="chat p1">
+          <h5>Andrew</h5>
+          <p>Are you avialable Wednesday around 4?</p>
+        </div>
+
+        <div class="chat p2">
+          <h5>Me</h5>
+          <p>I am availabe, sending you a calendar invite now.</p>
+        </div>
+
+        <div class="chat p3">
+          <h5>Me</h5>
+          <p>I am availabe, sending you a calendar invite now.</p>
+        </div>
+
+        <div class="chat p4">
+          <h5>Me</h5>
+          <p>I am availabe, sending you a calendar invite now.</p>
+        </div>
+
+        <div class="chat p5">
+          <h5>Me</h5>
+          <p>I am availabe, sending you a calendar invite now.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <footer>
+      <nav>
+        <p>copyright</p>
+        <ul>
+          <li>
+            <a href="" class="button">Activate</a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1.0 user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenLite.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TimelineLite.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/plugins/CSSPlugin.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/plugins/TextPlugin.min.js"></script>
+    <script>
+
+    window.onload = function () {
+     startAnim();
+    }
+
+    function startAnim() {
+
+      var convo = document.querySelector(".conversation");
+      var p1 = document.querySelector(".p1");
+      var weld = document.querySelector(".weld");
+      var p2 = document.querySelector(".p2");
+
+      var slide1 = convo.offsetHeight - p1.offsetHeight;
+      var slide2 = slide1 - weld.offsetHeight;
+      var slide3 = slide2 - p2.offsetHeight;
+
+      //Set the stage
+      var chat = document.querySelectorAll(".chat");
+      for (var i = 0; i < chat.length; i++) {
+        chat[i].style.opacity = 0;
+      }
+
+      convo.style.marginTop = 300;
+      p1.querySelector("p").innerHTML = " ";
+      p2.querySelector("p").innerHTML = " ";
+
+      var tl = new TimelineLite();
+      tl
+        .to(convo, 0.5, { marginTop: slide1 }, "slide1")
+        .to(p1, 0.5, { opacity: 1 }, "slide1")
+        .to(p1.querySelector("p"), 1, { text:"Are you avialable Wednesday around 4?", ease:Linear.easeNone })
+        .to(convo, 0.5, { delay: 2.5, marginTop: slide2 }, "slide2")
+        .to(weld, 0.5, { delay: 2.5, opacity: 1 }, "slide2")
+        .to(convo, 0.5, { delay: 2.5, marginTop: slide3 }, "slide3")
+        .to(p2, 0.5, { delay: 2.5, opacity: 1 }, "slide3")
+        .to(p2.querySelector("p"), 2.5, { text:"I am availabe, sending you a calendar invite now.", ease:Linear.easeNone });
+
+    }
+
+    </script>
+    <style>
+      body {
+        font-family: sans-serif;
+        color: #404040;
+      }
+      section {
+        margin: 96px auto 0;
+        height: 300px;
+        overflow: hidden;
+      }
+      .conversation {
+        overflow: hidden;
+        width: 100%;
+      }
+
+      h3 {
+        display: inline-block;
+        width: auto;
+      }
+      .chat {
+        margin: 0 auto;
+        padding: 0 0 16px;
+        max-width: 400px;
+        min-width: 300px;
+        width: 50%;
+      }
+      .p1 {
+        margin-top: 0px;
+      }
+      .p2, .weld {
+        text-align: right;
+      }
+      .time {
+        border: 1px dashed #e0e0e0;
+        border-radius: 2px 2px 0 0;
+        margin-top: 8px;
+        padding: 16px;
+      }
+      .time p {
+        display: inline-block;
+        width: 60%;
+        text-align: left;
+        vertical-align: top;
+      }
+      .time p:last-of-type {
+        font-size: 10px;
+        font-weight: bold;
+        text-align: right;
+        text-transform: uppercase;
+        width: 38%;
+      }
+      .action {
+        background: #0ca6f2;
+        border-radius: 0 0 2px 2px;
+        color: #fff;
+        padding: 16px;
+        text-align: left;
+      }
+      h5, h6, p {
+        margin: 0;
+        padding: 0;
+      }
+      h6 {
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="conversation">
+
+        <div class="chat p1">
+          <h5>Andrew</h5>
+          <p>Are you avialable Wednesday around 4?</p>
+        </div>
+
+        <div class="chat weld">
+          <h5>Weld</h5>
+          <h6>You are available</h6>
+          <div class="event">
+            <div class="time">
+              <p>Wednesday, May 6<br>4:00 - 5:00pm</p>
+              <p>Pacific Time</p>
+            </div>
+            <div class="action">
+              <p>Create Event</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat p2">
+          <h5>Me</h5>
+          <p>I am availabe, sending you a calendar invite now.</p>
+        </div>
+
+      </div>
+    </section>
+  </body>
+</html>
