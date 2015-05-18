@@ -56,10 +56,14 @@ h5, p {
 }
 
 .row {
-  display: block;
   margin: 0 auto;
   padding: 64px 0;
   max-width: 1000px;
+}
+.row:after{
+    clear: both;
+    content: "";
+    display: block;
 }
 .email, .slack, .scheduling, .flights, .bot {
   float: left;
