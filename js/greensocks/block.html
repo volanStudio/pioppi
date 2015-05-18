@@ -24,9 +24,14 @@
         var step2 = document.querySelector(".step2");
         var p1 = step2.querySelector(".p1");
         var p2 = step2.querySelector(".p2");
+        var cal = p2.querySelector(".cal");
         var p3 = step2.querySelector(".p3");
         var p4 = step2.querySelector(".p4");
-        var p5 = step2.querySelector(".p5");
+
+        var what = document.querySelector(".what")
+        var row = what.querySelector(".row");
+        var email = what.querySelector(".email");
+        var slack = what.querySelector(".slack");
 
         var multi = 0.1;
         var headHeight = headline1.offsetHeight;
@@ -39,11 +44,15 @@
 
           .from(p1, 0.5, { delay: .5*multi, opacity: 0, marginTop: p1.offsetHeight / 2 })
           .from(p2, 0.5, { delay: 1.5*multi, opacity: 0, marginTop: p2.offsetHeight / 2 })
+          .to(cal, 0.5, { delay: 1.5*multi, opacity: 0, height: 0 })
           .from(p3, 0.5, { delay: 1.5*multi, opacity: 0, marginTop: p3.offsetHeight / 2 })
           .from(p4, 0.5, { delay: 1.5*multi, opacity: 0, marginTop: p4.offsetHeight / 2 })
-          .from(p5, 0.5, { delay: 1.5*multi, opacity: 0, marginTop: p5.offsetHeight / 2 })
 
-          .to(headline1, 0.5, { delay: 2.5*multi, opacity: 1, marginTop: 32 }, "end");
+          .to(headline1, 0.5, { delay: 2.5*multi, opacity: 1, marginTop: 32 }, "end")
+          .from(row, 0.5, { delay: 2.5*multi, opacity: 0 }, "end")
+
+          .from(email, 0.5, {delay: 0.5*multi, opacity: 0, marginTop: 16, marginBottom: -16 })
+          .from(slack, 0.5, {delay: 0.5*multi, opacity: 0, marginTop: 16, marginBottom: -16 }, "polish");
 
       }
 
@@ -84,9 +93,10 @@
           <p>Are you avialable Wednesday around 4?</p>
         </div>
 
-        <div class="chat p2">
-          <h5>Me</h5>
+        <div class="chat p2 weld">
+          <h5>Weld</h5>
           <p>I am availabe, sending you a calendar invite now.</p>
+          <p class="cal">CALENDAR</p>
         </div>
 
         <div class="chat p3">
@@ -94,18 +104,37 @@
           <p>I am availabe, sending you a calendar invite now.</p>
         </div>
 
-        <div class="chat p4">
-          <h5>Me</h5>
-          <p>I am availabe, sending you a calendar invite now.</p>
-        </div>
-
-        <div class="chat p5">
-          <h5>Me</h5>
-          <p>I am availabe, sending you a calendar invite now.</p>
+        <div class="chat p4 weld">
+          <h5>Weld</h5>
+          <p>Calendar Invite Sent</p>
+          <p class="cal">ICS</p>
         </div>
 
       </div>
 
+    </section>
+
+    <section class="what">
+      <div class="row">
+        <div class="email">
+          <h2>Weld works on email</h2>
+          <div class="scheduling">
+            <h3>Scheduling</h3>
+            <p>Explainer text around scheduling</p>
+          </div>
+          <div class="flights">
+            <h3>Flights</h3>
+            <p>Explainer text around flights</p>
+          </div>
+        </div>
+        <div class="slack">
+          <h2>Weld works on Slack</h2>
+          <div class="bot">
+            <h3>Interactive</h3>
+            <p>Explainer text around slack</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <footer>
