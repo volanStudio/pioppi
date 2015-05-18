@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+  height: 96px;
+  top: 0;
+}
+
+footer {
+  width: 100%;
+  height: 96px;
+  bottom: 0;
+}
+nav {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.animation {
+  height: 768px;
+  margin-top: 32px;
+  overflow: hidden;
+  width: 100%;
+}
+div[class^='step'], div[class*=' step'] {
+  display: block;
+  width: 100%;
+}
+.chat, .headline, .button-group {
+  text-align: left;
+  max-width: 400px;
+  width: 100%;
+  padding: 12px;
+  margin: 0 auto;
+  background: #f7f7f7;
+}
+.headline {
+  max-width: 60%;
+  text-align: center;
+  background: #eaeaea;
+}
+.p2 {
+  text-align: right;
+}
+h5, p {
+  margin: 0;
+}

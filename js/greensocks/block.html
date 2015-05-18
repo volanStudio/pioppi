@@ -13,7 +13,7 @@
     <script>
 
       window.onload = function () {
-       //startAnim();
+       startAnim();
       }
 
       function startAnim() {
@@ -33,24 +33,22 @@
 
         var tl = new TimelineLite();
         tl
-          .from(headline1, 0.5, { opacity: 0, top: headHeight })
-          .to(headline1, 0.5, { delay: 2.5*multi, opacity: 0, top: -headHeight / 2 }, "start")
-          .to(step2, 0.5, { delay: 2.5*multi, top: 0 }, "start")
+          .fromTo(headline1, 0.5, { opacity: 0, marginTop: headHeight * 2 }, { opacity: 1, marginTop: headHeight })
+          .to(headline1, 0.5, { delay: 2.5*multi, opacity: 0, marginTop: 0 }, "start")
+          .from(step2, 0.5, { delay: 2.5*multi, marginTop: headHeight }, "start")
 
-          .from(p1, 0.5, { delay: .5*multi, opacity: 0, top: p1.offsetHeight })
-          .from(p2, 0.5, { delay: 1.5*multi, opacity: 0, top: p2.offsetHeight })
-          .from(p3, 0.5, { delay: 1.5*multi, opacity: 0, top: p3.offsetHeight })
-          .from(p4, 0.5, { delay: 1.5*multi, opacity: 0, top: p4.offsetHeight })
-          .from(p5, 0.5, { delay: 1.5*multi, opacity: 0, top: p5.offsetHeight })
+          .from(p1, 0.5, { delay: .5*multi, opacity: 0, marginTop: p1.offsetHeight / 2 })
+          .from(p2, 0.5, { delay: 1.5*multi, opacity: 0, marginTop: p2.offsetHeight / 2 })
+          .from(p3, 0.5, { delay: 1.5*multi, opacity: 0, marginTop: p3.offsetHeight / 2 })
+          .from(p4, 0.5, { delay: 1.5*multi, opacity: 0, marginTop: p4.offsetHeight / 2 })
+          .from(p5, 0.5, { delay: 1.5*multi, opacity: 0, marginTop: p5.offsetHeight / 2 })
 
-          .to(step2, 0.5, { delay: 2.5*multi, top: headHeight / 3 }, "end")
-          .to(headline1, 0.5, { delay: 2.5*multi, opacity: 1, top: headHeight }, "end");
+          .to(headline1, 0.5, { delay: 2.5*multi, opacity: 1, marginTop: 32 }, "end");
 
       }
 
     </script>
-
-    <link rel="stylesheet" type="text/css" href="_css/flex.css" />
+    <link rel="stylesheet" type="text/css" href="_css/block.css" />
   </head>
   <body>
 
