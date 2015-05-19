@@ -38,9 +38,9 @@
 
         var tl = new TimelineLite();
         tl
-          .fromTo(headline1, 0.5, { opacity: 0, marginTop: headHeight * 2 }, { opacity: 1, marginTop: headHeight })
-          .to(headline1, 0.5, { delay: 2.5*multi, opacity: 0, marginTop: 0 }, "start")
-          .from(step2, 0.5, { delay: 2.5*multi, marginTop: headHeight }, "start")
+          .fromTo(headline1, 0.5, { opacity: 0, marginTop: headHeight * 1.25 }, { opacity: 1, marginTop: headHeight })
+          .to(headline1, 0.5, { delay: 2.5*multi, opacity: 0, marginTop: headHeight * 0.75, marginBottom: -headHeight * 0.75 }, "start")
+          .fromTo(step2, 0.5, { delay: 2.5*multi, marginTop: headHeight * 1.25 }, {marginTop: - headHeight * 0.75}, "start")
 
           .from(p1, 0.5, { delay: .5*multi, opacity: 0, marginTop: p1.offsetHeight / 2 })
           .from(p2, 0.5, { delay: 1.5*multi, opacity: 0, marginTop: p2.offsetHeight / 2 })
@@ -48,8 +48,11 @@
           .from(p3, 0.5, { delay: 1.5*multi, opacity: 0, marginTop: p3.offsetHeight / 2 })
           .from(p4, 0.5, { delay: 1.5*multi, opacity: 0, marginTop: p4.offsetHeight / 2 })
 
-          .to(headline1, 0.5, { delay: 2.5*multi, opacity: 1, marginTop: 32 }, "end")
+
+
+          .to(headline1, 0.5, { delay: 2.5*multi, opacity: 1, marginTop: 0, marginBottom: 0 }, "end")
           .from(row, 0.5, { delay: 2.5*multi, opacity: 0 }, "end")
+          .to(step2, 0.5, { delay: 2.5*multi, marginTop: 0 })
 
           .from(email, 0.5, {delay: 0.5*multi, opacity: 0, marginTop: 16, marginBottom: -16 })
           .from(slack, 0.5, {delay: 0.5*multi, opacity: 0, marginTop: 16, marginBottom: -16 }, "polish");
