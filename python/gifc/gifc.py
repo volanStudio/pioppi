@@ -5,7 +5,7 @@ import subprocess
 # Need to install ffmpeg and gifsicle to run gifc.
 
 def createPngs():
-  cmd = "ffmpeg -i "+ sys.argv[1] +" -r 8 gif/pngs/out%04d.png"
+  cmd = "ffmpeg -i "+ sys.argv[1] +" -r 8 gif/pngs/"+ sys.argv[2] +"%04d.png"
   p = subprocess.Popen(cmd, shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
   output = p.communicate()[0]
   print output
@@ -19,7 +19,7 @@ def convertToGifs():
   finalizeGif()
 
 def finalizeGif():
-  cmd = "gifsicle --optimize=3 --colors 256 --loopcount gif/gifs/* > gif/anim.gif"
+  cmd = "gifsicle --optimize=3 --colors 256 --loopcount gif/gifs/* > gif/"+ sys.argv[2] +".gif"
   p = subprocess.Popen(cmd, shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
   output = p.communicate()[0]
   print output
