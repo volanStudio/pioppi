@@ -4,9 +4,10 @@
 
 GIFc requires the following packages:
 
-`` brew install ffmpeg ``
-
-`` brew install gifcicle ``
+```
+brew install ffmpeg
+brew install gifcicle
+```
 
 ## Running GIFc
 
@@ -14,4 +15,6 @@ GIFc takes a video file as an input and creates a directory with your animated g
 
 Currently outputs an 8 fps GIF.
 
-`` python GIFc.py {videoFile} {gifName} ``
+```
+python GIFc.py {videoFile} {gifName}
+```
