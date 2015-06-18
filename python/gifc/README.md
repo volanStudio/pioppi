@@ -4,9 +4,9 @@
 
 GIFc requires the following packages:
 
-`` homebrew install ffmpeg ``
+`` brew install ffmpeg ``
 
-`` homebrew install gifcicle ``
+`` brew install gifcicle ``
 
 ## Running GIFc
 
