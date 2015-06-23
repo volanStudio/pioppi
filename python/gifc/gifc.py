@@ -5,31 +5,38 @@ import subprocess
 # Need to install ffmpeg and gifsicle to run gifc.
 
 def createPngs():
-  cmd = "ffmpeg -i "+ sys.argv[1] +" -r 8 gif/pngs/"+ sys.argv[2] +"%04d.png"
+  cmd = 'ffmpeg -i '+ name +' -r 8 '+ directories[0] +'/'+ title +'%04d.png'
   p = subprocess.Popen(cmd, shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
   output = p.communicate()[0]
-  print output
+  print '2. created pngs '+ directories[0]
   convertToGifs()
 
 def convertToGifs():
-  cmd = "sips -s format gif gif/pngs/* --out gif/gifs"
+  cmd = 'sips -s format gif '+ directories[0] +'/* --out '+ directories[1]
   p = subprocess.Popen(cmd, shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
   output = p.communicate()[0]
-  print output
+  print '3. converted pngs '+ directories[0] +' to gifs '+ directories[1]
   finalizeGif()
 
 def finalizeGif():
-  cmd = "gifsicle --optimize=3 --colors 256 --loopcount gif/gifs/* > gif/"+ sys.argv[2] +".gif"
+  cmd = 'gifsicle --optimize=3 --colors 256 --loopcount '+ directories[1] +'/* >'+ directories[2] +'/'+ title +'.gif -d1000 "#-1"'
   p = subprocess.Popen(cmd, shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
   output = p.communicate()[0]
-  print output
+  print '4. merged gifs in '+ directories[1] +' into "'+ directories[2] +'/'+ title +'"'
 
-directories = [ "gif/", "gif/pngs", "gif/gifs"]
+# Define input file name and a folder for the specific assets
+name = sys.argv[1];
+title = os.path.splitext(name)[0]
 
-for dirs in directories:
-  if not os.path.exists(dirs):
-    os.makedirs(dirs)
+# Create driectories to stick the assets
+directories = [ '_assets/'+ title +'/pngs', '_assets/'+ title +'/gifs', '_final']
+
+print '1. evaluating file structure'
+for directory in directories:
+  if not os.path.exists(directory):
+    os.makedirs(directory)
+    print '   -  '+ directory + ' was created'
   else:
-    print "directories already exist"
+    print '   -  '+ directory + ' already exists'
 
-fun = createPngs()
+ex = createPngs()
