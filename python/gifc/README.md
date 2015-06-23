@@ -11,10 +11,16 @@ brew install gifcicle
 
 ## Running GIFc
 
-GIFc takes a video file as an input and creates a directory with your animated gif and the source files of the resultant GIF
-
-Currently outputs an 8 fps GIF.
+GIFc takes a video file as an input and creates a directory with frame by frame source pngs and gifs and a compiled final gif at 8 fps.
 
 ```
-python GIFc.py {videoFile} {gifName}
+python GIFc.py {videoFile}
+
+results in
+
+_assets/
+  pngs/
+  gifs/
+_final/
+  {videoFile}
 ```
