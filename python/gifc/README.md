@@ -11,7 +11,7 @@ brew install gifcicle
 
 ## Running GIFc
 
-GIFc takes a video file as an input and creates a directory with frame by frame source pngs and gifs and a compiled final gif at 8 fps.
+GIFc takes a video file as an input and creates a directory with frame by frame source pngs and gifs and a compiled final gif at 8 fps that pauses on the last frame for 10 seconds.
 
 ```
 python GIFc.py {videoFile}
