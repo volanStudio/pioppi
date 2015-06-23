@@ -15,9 +15,9 @@ GIFc takes a video file as an input and creates a directory with frame by frame 
 
 ```
 python GIFc.py {videoFile}
-
+```
 results in
-
+```
 _assets/
   pngs/
   gifs/
