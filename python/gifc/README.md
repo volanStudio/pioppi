@@ -6,7 +6,7 @@ GIFc requires the following packages:
 
 ```
 brew install ffmpeg
-brew install gifcicle
+brew install gifsicle
 ```
 
 ## Running GIFc
